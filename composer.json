@@ -1,0 +1,8 @@
+{
+  "name": "skuola/pagonline",
+  "description": "Igfs payment gateway sdk",
+  "keywords": ["pagonline", "unicredit", "igfs", "payment", "skuola"],
+  "autoload": {
+    "psr-4": { "PagOnline\\": "src/PagOnline" }
+  }
+}
