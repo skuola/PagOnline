@@ -1,6 +1,6 @@
 <?php
 
-namespace PagOnline\mpi;
+namespace PagOnline\tran;
 
 use PagOnline\Exception\IgfsMissingParException;
 use PagOnline\IgfsUtils;
@@ -87,7 +87,7 @@ class IgfsCgConfirm extends BaseIgfsCgTran {
 				$this->refTranID, // REFORDERID
 				$this->topUpID);
 		$signature = $this->getSignature($this->kSig, // KSIGN
-				$fields); 
+				$fields);
 		$request = $this->replaceRequest($request, "{signature}", $signature);
 		return $request;
 	}
@@ -127,11 +127,11 @@ class IgfsCgConfirm extends BaseIgfsCgTran {
 				IgfsUtils::getValue($response, "addInfo5"));// UDF5
 		// signature dove il buffer e' cosi composto TID|SHOPID|RC|ERRORDESC|ORDERID|DATE|UDF1|UDF2|UDF3|UDF4|UDF5
 		return $this->getSignature($this->kSig, // KSIGN
-				$fields); 
+				$fields);
 	}
-	
+
 	protected function getFileName() {
-		return __DIR__."IgfsCgConfirm.request";
+		return __DIR__."/IgfsCgConfirm.request";
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PagOnline\mpi;
+namespace PagOnline\tran;
 
 use PagOnline\BaseIgfsCg;
 use PagOnline\Exception\IgfsMissingParException;
