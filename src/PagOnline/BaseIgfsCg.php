@@ -13,6 +13,8 @@ abstract class BaseIgfsCg {
 	private static $version = "2.2.2";
 
 	public $kSig; // chiave signature
+	public $requestBody;
+	public $responseBody;
 
 	public $serverURL = NULL;
 	public $serverURLs = NULL;
@@ -172,9 +174,11 @@ abstract class BaseIgfsCg {
 		$request = $this->setRequestSignature($request);
 		// Inviamo la richiesta e leggiamo la risposta
 		try {
-			// System.out.println(request);
+			// stores request for convenience (logging, ...)
+			$this->requestBody = $request;
 			$response = $this->post($url, $request);
-			// System.out.println(response);
+			// stores response for convenience (logging, ...)
+			$this->responseBody = $response;
 		} catch (IOException $e) {
 			throw $e;
 		}		
